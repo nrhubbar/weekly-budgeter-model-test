@@ -1,10 +1,10 @@
 pluginManagement {
     plugins {
-        id 'software.amazon.smithy' version '0.6.0'
+        id 'software.amazon.smithy' version '0.7.0'
     }
 }
 
-rootProject.name = 'string-wizard-service'
+rootProject.name = 'weekly-budgeter-v2'
 
 includeBuild('./model')
 

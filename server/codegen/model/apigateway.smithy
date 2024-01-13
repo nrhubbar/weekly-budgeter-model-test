@@ -1,12 +1,8 @@
-namespace software.amazon.smithy.demo
+namespace com.weekly.budgeter
 
-apply Echo @aws.apigateway#integration(
-    type: "aws_proxy",
-    httpMethod: "POST",
-    uri: ""
-)
+use com.weekly.budgeter#WeeklyBudgeter
 
-apply Length @aws.apigateway#integration(
+apply WeeklyBudgeter @aws.apigateway#integration(
     type: "aws_proxy",
     httpMethod: "POST",
     uri: ""

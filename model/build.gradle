@@ -18,12 +18,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "software.amazon.smithy:smithy-cli:1.19.0"
+        classpath "software.amazon.smithy:smithy-cli:1.43.0"
+        classpath "software.amazon.smithy:smithy-openapi:1.43.0"
+
     }
 }
 
 plugins {
-    id 'software.amazon.smithy' version '0.6.0'
+    id 'software.amazon.smithy' version '0.7.0'
     id 'maven-publish'
 }
 
@@ -36,9 +38,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'software.amazon.smithy:smithy-model:1.19.0'
-    implementation 'software.amazon.smithy:smithy-aws-traits:1.19.0'
-    implementation 'software.amazon.smithy:smithy-validation-model:1.19.0'
+    implementation 'software.amazon.smithy:smithy-model:1.43.0'
+    implementation 'software.amazon.smithy:smithy-aws-traits:1.43.0'
+    implementation 'software.amazon.smithy:smithy-validation-model:1.43.0'
 }
 
 publishing {
