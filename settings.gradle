@@ -11,5 +11,3 @@ includeBuild('./model')
 include 'server-codegen'
 project(':server-codegen').projectDir = file('server/codegen')
 
-include 'typescript-client-codegen'
-project(':typescript-client-codegen').projectDir = file('typescript-client/codegen')

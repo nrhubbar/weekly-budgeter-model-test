@@ -7,25 +7,5 @@
       "protocol": "aws.protocols#restJson1",
       "version": "3.1.0"
     }
-  },
-  "projections" : {
-    "apigateway" : {
-      "imports" : ["model/"],
-      "plugins" : {
-        "openapi": {
-          "service": "com.weekly.budgeter#WeeklyBudgeter",
-          "protocol": "aws.protocols#restJson1",
-          "apiGatewayType" : "REST"
-        }
-      }
-    },
-    "ts-server" : {
-      "plugins": {
-        "typescript-ssdk-codegen" : {
-          "package" : "@smithy-demo/string-wizard-service-ssdk",
-          "packageVersion": "0.0.1"
-        }
-      }
-    }
   }
 }
