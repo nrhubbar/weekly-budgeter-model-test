@@ -1,3 +1,67 @@
 {
-  "version" : "1.0"
+  "version" : "1.0",
+  "outputDirectory" : "build/output",
+  "plugins": {
+    "openapi": {
+      "service": "com.weekly.budgeter#WeeklyBudgeter",
+      "protocol": "aws.protocols#restJson1",
+      "version": "3.0.2",
+      "ignoreUnsupportedTraits": true,
+      "enableRelativeIdFormat": true,
+      "enableCloudTrail": false,
+      "jsonAdd": {
+        "/x-amazon-apigateway-gateway-responses": {
+          "BAD_REQUEST_PARAMETERS": {
+            "responseTemplates" : {
+              "application/json":"{\"message\": \"$context.error.message\"}"
+            },
+            "responseParameters": {
+              "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+              "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+              "gatewayresponse.header.x-amzn-ErrorType": "'ValidationException'"
+            }
+          },
+          "BAD_REQUEST_BODY": {
+            "responseTemplates" : {
+              "application/json": "{\"message\": \"$context.error.message\"}"
+            },
+            "responseParameters": {
+              "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+              "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+              "gatewayresponse.header.x-amzn-ErrorType": "'ValidationException'"
+            }
+          },
+          "ACCESS_DENIED": {
+            "responseTemplates" : {
+              "application/json": "{\"message\": \"$context.error.message\"}"
+            },
+            "responseParameters": {
+              "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+              "gatewayresponse.header.Access-Control-Allow-Headers": "'*'"
+            }
+          },
+          "THROTTLED": {
+            "responseTemplates" : {
+              "application/json": "{\"message\": \"$context.error.message\"}"
+            },
+            "responseParameters": {
+              "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+              "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+              "gatewayresponse.header.x-amzn-ErrorType": "'ThrottlingException'"
+            }
+          },
+          "DEFAULT_5XX": {
+            "responseTemplates" : {
+              "application/json": "{ \"message\": \"Unexpected error during processing of request.\"}"
+            },
+            "responseParameters": {
+              "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+              "gatewayresponse.header.Access-Control-Allow-Headers": "'*'",
+              "gatewayresponse.header.x-amzn-ErrorType": "'InternalServerException'"
+            }
+          }
+        }
+      }
+    }
+  }
 }
